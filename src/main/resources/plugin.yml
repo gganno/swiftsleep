@@ -1,0 +1,6 @@
+name: SwiftSleep
+version: ${project.version}
+main: com.carrotcraft.swiftsleep.Swiftsleep
+api-version: 1.15.2
+authors: [gganno]
+description: A basic plugin to allow single player sleeping on a server
