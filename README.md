@@ -6,3 +6,4 @@ Todo:
  - Implement config file
  - Integration with permissions manager
  - Allow for cancellation of night skip (clicking name in chat?)
+ - Clear the weather (integrate with config)
