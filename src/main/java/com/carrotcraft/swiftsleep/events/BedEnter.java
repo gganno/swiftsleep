@@ -29,9 +29,6 @@ public class BedEnter implements Listener {
         /** - Check if the player entered the bed successfully */
         if(e.getBedEnterResult() == PlayerBedEnterEvent.BedEnterResult.OK) {
 
-            /** - love you */
-            long time;
-
             /** - Raining boolean */
             boolean raining;
 
@@ -41,21 +38,20 @@ public class BedEnter implements Listener {
             /** - Get the world the player is in */
             World _world = _player.getWorld();
 
-            /** - Get the world time */
-            time = _world.getTime();
-
             /** - Get if the world is raining */
             raining = _world.hasStorm();
 
-            /** - Check if time is night for clear and rainy weather */
-            if (((time >= 12010) && raining) || ((time >= 12542))) { //todo: redundant already check for ability to enter bed
+            if(raining){
 
-                /** - Broadcast to the rest of the players that someone is skipping the night */
-                getServer().broadcastMessage(ChatColor.DARK_GRAY + _player.getName() + ChatColor.WHITE + " is skipping the night");
-
-                /** - Schedule a task to skip the night */
-                BukkitTask skipNight = new ForwardTime(plugin).runTaskTimer(plugin, 40, 1);
+                /** - Clear the weather */
+                _world.setStorm(false);
             }
+
+            /** - Broadcast to the rest of the players that someone is skipping the night */
+            getServer().broadcastMessage(ChatColor.DARK_GRAY + _player.getName() + ChatColor.GRAY + " is skipping the night");
+
+            /** - Schedule a task to skip the night */
+            BukkitTask skipNight = new ForwardTime(plugin).runTaskTimer(plugin, 40, 1);
         }
         return;
     }

@@ -3,3 +3,4 @@ version: ${project.version}
 main: com.carrotcraft.swiftsleep.Swiftsleep
 authors: [gganno]
 description: A basic plugin to allow single player sleeping on a server
+api-version: 1.16
